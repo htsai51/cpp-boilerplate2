@@ -38,7 +38,7 @@ TEST(testSetControlParam, should_pass) {
  *   @param  none
  *   @return none
 */
-TEST(testSetcomputeVelocity, should_pass) {
+TEST(testComputeVelocity, should_pass) {
     PIDController pid;
     ASSERT_EQ(pid.computeVelocity(25, 20, 1), 15);
 }
