@@ -50,7 +50,9 @@ bool PIDController::setControlParam(double p, double i, double d) {
 double PIDController::computeVelocity(double setPoint, double curVelocity,
                                       double time) {
     //double newVelocity = 25.0;        ///< FIXME
-
+	if(time == 0){
+		return 0;
+	}
     // Calculate error
     double error = setPoint - curVelocity;
 
