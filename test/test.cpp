@@ -42,5 +42,6 @@ TEST(testComputeVelocity, should_pass) {
     PIDController pid;
     pid.setControlParam(1,1,1);
     ASSERT_EQ(pid.computeVelocity(25, 20, 1), 15);
+    ASSERT_EQ(pid.computeVelocity(25, 20, 0), 0);
 }
 

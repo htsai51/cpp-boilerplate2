@@ -5,7 +5,7 @@
 
 ## Overview
 
-Simple starter C++ project with:
+Simple PID Controller C++ project with:
 
 - cmake
 - googletest
@@ -13,7 +13,18 @@ Simple starter C++ project with:
 ## Installation
 
 - Checkout the repo (and submodules)
-```
+```bash
 $ git clone --recursive https://github.com/htsai51/cpp-boilerplate2.git
+cd cpp-boilerplate2
+mkdir -p build
+cd build
+cmake ..
+make
 ```
 
+## Testing the code
+
+- In your build/ directory
+```bash
+./test/cpp-test
+```
