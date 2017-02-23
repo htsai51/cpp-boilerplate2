@@ -49,10 +49,30 @@ bool PIDController::setControlParam(double p, double i, double d) {
 */
 double PIDController::computeVelocity(double setPoint, double curVelocity,
                                       double time) {
-    double newVelocity = 25.0;        ///< FIXME
+    //double newVelocity = 25.0;        ///< FIXME
 
-    /* FIXME: to be implemented */
+    // Calculate error
+    double error = setPoint - curVelocity;
 
-    return newVelocity;
+    // Proportional term
+    double Pout = Kp * error;
+
+    // Integral term
+    preIntegral += error * time;
+    double Iout = Ki * preIntegral;
+
+    // Derivative term
+    double derivative = (error - preError) / time;
+    double Dout = Kd * derivative;
+
+    // Calculate total output
+    double output = Pout + Iout + Dout;
+
+    // Save error to previous error
+    preError = error;
+
+    return output;
+
+    //return newVelocity;
 }
 
